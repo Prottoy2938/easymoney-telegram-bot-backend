@@ -25,6 +25,8 @@ const bot = new TelegramBot(token, { polling: true });
 // Keep track of users who are in the process of providing email
 const usersAwaitingEmail = {};
 
+bot.on("polling_error", (msg) => console.log(msg));
+
 // Listen for messages
 bot.on("message", async (msg) => {
   const chatId = msg.chat.id;
